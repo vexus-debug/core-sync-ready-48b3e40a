@@ -26,8 +26,24 @@ export function InstallPrompt() {
   const [deferred, setDeferred] = useState<BeforeInstallPromptEvent | null>(null);
   const [visible, setVisible] = useState(false);
   const [iosHint, setIosHint] = useState(false);
+  const { pathname } = useLocation();
+  const isPublic = isPublicSitePath(pathname);
+
+  // Only expose the PWA manifest on dashboard/app pages so browsers never
+  // offer installation on the public site.
+  useEffect(() => {
+    const link = document.querySelector<HTMLLinkElement>('link[rel="manifest"]');
+    if (isPublic) link?.remove();
+    else if (!link) {
+      const el = document.createElement("link");
+      el.rel = "manifest";
+      el.href = "/manifest.webmanifest";
+      document.head.appendChild(el);
+    }
+  }, [isPublic]);
 
   useEffect(() => {
+    if (isPublic) return;
     if (isStandalone()) return;
     if (window.self !== window.top) return;
     if (localStorage.getItem(DISMISS_KEY) === "1") return;
