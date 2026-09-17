@@ -40,15 +40,29 @@ export default defineConfig(({ mode }) => ({
         clientsClaim: true,
         skipWaiting: false,
         navigateFallback: "/index.html",
-        // Public clinic websites and OAuth must never be served from the SW cache
-        navigateFallbackDenylist: [/^\/site\//, /^\/~oauth/],
+        // Public-facing pages (marketing site, clinic sites, results) and OAuth
+        // must never be served from the SW cache — the PWA is dashboard-only
+        navigateFallbackDenylist: [
+          /^\/$/,
+          /^\/(features|industries|about|contact|privacy|terms|demo|result)$/,
+          /^\/site\//,
+          /^\/~oauth/,
+        ],
         runtimeCaching: [
           {
-            urlPattern: ({ request, url, sameOrigin }) =>
-              request.mode === "navigate" &&
-              sameOrigin &&
-              !url.pathname.startsWith("/site/") &&
-              !url.pathname.startsWith("/~oauth"),
+            urlPattern: ({ request, url, sameOrigin }) => {
+              const p = url.pathname;
+              const isPublic =
+                p === "/" ||
+                /^\/(features|industries|about|contact|privacy|terms|demo|result)$/.test(p) ||
+                p.startsWith("/site/");
+              return (
+                request.mode === "navigate" &&
+                sameOrigin &&
+                !isPublic &&
+                !p.startsWith("/~oauth")
+              );
+            },
             handler: "NetworkFirst",
             options: {
               cacheName: "clinexus-pages",
