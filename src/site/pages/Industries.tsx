@@ -225,7 +225,7 @@ const Industries = () => {
                     </li>
                   ))}
                 </ul>
-                <a href="https://app.clinexus.com.ng/">
+                <a href="/signup">
                   <Button className="mt-2 gap-2 rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--medical-teal))] px-8 text-white shadow-md hover:opacity-90">
                     Get Started <ArrowRight className="h-4 w-4" />
                   </Button>

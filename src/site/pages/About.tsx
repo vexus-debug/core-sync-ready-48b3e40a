@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Shield, Zap, Heart, Lightbulb, CheckCircle2, ArrowRight, Target, Globe, Award, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const APP_URL = "https://app.clinexus.com.ng/";
+const APP_URL = "/signup";
 
 const values = [
   { icon: Shield, title: "Your Patients' Trust, Protected", description: "One data slip can wreck a clinic's reputation. We lock patient records down tight, so that's never something you have to worry about." },

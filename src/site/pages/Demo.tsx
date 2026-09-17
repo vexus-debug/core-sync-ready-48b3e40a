@@ -185,7 +185,7 @@ const Demo = () => {
               Start your first month and get access to every screen you just saw.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://app.clinexus.com.ng/">
+              <a href="/signup">
                 <Button size="lg" className="gap-2 rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--medical-teal))] px-10 text-white shadow-lg shadow-primary/30 hover:opacity-90">
                   Get Started Free <ArrowRight className="h-4 w-4" />
                 </Button>

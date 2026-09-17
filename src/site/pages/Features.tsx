@@ -229,7 +229,7 @@ const Features = () => {
               Every day without a proper system costs you patients, money, and peace of mind. Start your free trial today.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://app.clinexus.com.ng/">
+              <a href="/signup">
                 <Button size="lg" className="gap-2 rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--medical-teal))] px-10 text-white shadow-lg shadow-primary/30 hover:opacity-90">
                   Get Started Free <ArrowRight className="h-4 w-4" />
                 </Button>

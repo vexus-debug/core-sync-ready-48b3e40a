@@ -76,7 +76,7 @@ const Navbar = () => {
 
         {/* Desktop CTAs */}
         <div className="hidden items-center gap-2 md:flex">
-          <a href="https://app.clinexus.com.ng/">
+          <a href="/login">
             <Button
               variant="ghost"
               size="sm"
@@ -87,7 +87,7 @@ const Navbar = () => {
               Log In
             </Button>
           </a>
-          <a href="https://app.clinexus.com.ng/">
+          <a href="/signup">
             <Button
               size="sm"
               className="gap-1.5 rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--medical-teal))] px-5 text-white shadow-md hover:opacity-90"
@@ -137,10 +137,10 @@ const Navbar = () => {
 
               <div className="border-t border-border px-4 py-4">
                 <div className="flex flex-col gap-2">
-                  <a href="https://app.clinexus.com.ng/" onClick={() => setOpen(false)}>
+                  <a href="/login" onClick={() => setOpen(false)}>
                     <Button variant="outline" className="w-full rounded-full">Log In</Button>
                   </a>
-                  <a href="https://app.clinexus.com.ng/" onClick={() => setOpen(false)}>
+                  <a href="/signup" onClick={() => setOpen(false)}>
                     <Button className="w-full gap-2 rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--medical-teal))] text-white hover:opacity-90">
                       Start Free <ArrowRight className="h-4 w-4" />
                     </Button>
