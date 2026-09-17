@@ -19,8 +19,12 @@ export function isIos() {
   return /iphone|ipad|ipod/i.test(window.navigator.userAgent);
 }
 
-/** The public clinic website must stay a plain website: no service worker, no install UI. */
+/** Public-facing pages (marketing site, clinic sites, results) must stay plain
+ *  websites: no service worker, no manifest, no install UI. The PWA is only for
+ *  the dashboard/app pages. */
+const PUBLIC_EXACT_PATHS = ["/", "/features", "/industries", "/about", "/contact", "/privacy", "/terms", "/demo", "/result"];
 export function isPublicSitePath(pathname = window.location.pathname) {
+  if (PUBLIC_EXACT_PATHS.includes(pathname)) return true;
   return pathname.startsWith("/site/");
 }
 

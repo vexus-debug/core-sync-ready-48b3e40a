@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { X, Download, Share } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { isPublicSitePath } from "@/hooks/usePwa";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -24,8 +26,24 @@ export function InstallPrompt() {
   const [deferred, setDeferred] = useState<BeforeInstallPromptEvent | null>(null);
   const [visible, setVisible] = useState(false);
   const [iosHint, setIosHint] = useState(false);
+  const { pathname } = useLocation();
+  const isPublic = isPublicSitePath(pathname);
+
+  // Only expose the PWA manifest on dashboard/app pages so browsers never
+  // offer installation on the public site.
+  useEffect(() => {
+    const link = document.querySelector<HTMLLinkElement>('link[rel="manifest"]');
+    if (isPublic) link?.remove();
+    else if (!link) {
+      const el = document.createElement("link");
+      el.rel = "manifest";
+      el.href = "/manifest.webmanifest";
+      document.head.appendChild(el);
+    }
+  }, [isPublic]);
 
   useEffect(() => {
+    if (isPublic) return;
     if (isStandalone()) return;
     if (window.self !== window.top) return;
     if (localStorage.getItem(DISMISS_KEY) === "1") return;
@@ -53,7 +71,7 @@ export function InstallPrompt() {
       window.removeEventListener("appinstalled", onInstalled);
       if (timer) window.clearTimeout(timer);
     };
-  }, []);
+  }, [isPublic]);
 
   const dismiss = () => {
     setVisible(false);
@@ -68,7 +86,7 @@ export function InstallPrompt() {
     setVisible(false);
   };
 
-  if (!visible) return null;
+  if (!visible || isPublic) return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-[100] p-3 sm:left-auto sm:right-4 sm:bottom-4 sm:w-96 sm:p-0">
