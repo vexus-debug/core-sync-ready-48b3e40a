@@ -57,6 +57,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        "medical-blue": {
+          DEFAULT: "hsl(var(--medical-blue))",
+          light: "hsl(var(--medical-blue-light))",
+          dark: "hsl(var(--medical-blue-dark))",
+        },
+        "medical-navy": "hsl(var(--medical-navy))",
+        "medical-teal": "hsl(var(--medical-teal))",
         // Vista Dental custom colors
         clinic: {
           navy: "hsl(var(--clinic-navy))",
@@ -89,6 +96,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
+        heading: ["'Inter'", "system-ui", "sans-serif"],
+        body: ["'Inter'", "system-ui", "sans-serif"],
         sans: ["'DM Sans'", "Inter", "system-ui", "sans-serif"],
         display: ["'Plus Jakarta Sans'", "Inter", "system-ui", "sans-serif"],
       },
@@ -137,6 +146,14 @@ export default {
           from: { transform: "rotate(0deg)" },
           to: { transform: "rotate(360deg)" },
         },
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "count-up": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
         "counter-up": {
           from: { opacity: "0", transform: "translateY(10px)" },
           to: { opacity: "1", transform: "translateY(0)" },
@@ -154,6 +171,8 @@ export default {
         "scale-in": "scale-in 0.5s ease-out forwards",
         "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
         "spin-slow": "spin-slow 20s linear infinite",
+        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
+        "count-up": "count-up 0.4s ease-out forwards",
         "counter-up": "counter-up 0.5s ease-out forwards",
       },
     },
