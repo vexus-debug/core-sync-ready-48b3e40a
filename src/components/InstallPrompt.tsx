@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { X, Download, Share } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { isPublicSitePath } from "@/hooks/usePwa";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
