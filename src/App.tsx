@@ -168,10 +168,10 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
-      <InstallPrompt />
       <Sonner />
       <BrowserRouter>
         <AuthProvider>
+          <InstallPrompt />
           <SessionTracker />
           <SiteScrollToTop />
           <Routes>

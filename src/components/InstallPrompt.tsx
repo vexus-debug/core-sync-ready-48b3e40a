@@ -71,7 +71,7 @@ export function InstallPrompt() {
       window.removeEventListener("appinstalled", onInstalled);
       if (timer) window.clearTimeout(timer);
     };
-  }, []);
+  }, [isPublic]);
 
   const dismiss = () => {
     setVisible(false);
@@ -86,7 +86,7 @@ export function InstallPrompt() {
     setVisible(false);
   };
 
-  if (!visible) return null;
+  if (!visible || isPublic) return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-[100] p-3 sm:left-auto sm:right-4 sm:bottom-4 sm:w-96 sm:p-0">
