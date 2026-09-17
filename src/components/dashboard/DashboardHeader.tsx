@@ -62,7 +62,7 @@ export function DashboardHeader({ onToggleAI, aiOpen }: DashboardHeaderProps = {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/");
+    navigate("/login");
   };
 
   const relativePath = extractRelativePath(location.pathname);

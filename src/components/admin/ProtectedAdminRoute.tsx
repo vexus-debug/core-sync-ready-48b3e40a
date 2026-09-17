@@ -20,7 +20,7 @@ export function ProtectedAdminRoute({ children }: ProtectedAdminRouteProps) {
   }
 
   if (!session) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   if (!roles.includes("super_admin")) {

@@ -50,7 +50,7 @@ export function AdminSidebar() {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/");
+    navigate("/login");
   };
 
   return (

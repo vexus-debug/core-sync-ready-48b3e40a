@@ -56,7 +56,7 @@ export default function SelectClinic() {
   useEffect(() => {
     if (loading || creatingClinic) return;
     if (!user) {
-      navigate("/", { replace: true });
+      navigate("/login", { replace: true });
       return;
     }
     // Super admin can also access /admin
@@ -104,7 +104,7 @@ export default function SelectClinic() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button variant="outline" onClick={() => { signOut(); navigate("/"); }}>
+            <Button variant="outline" onClick={() => { signOut(); navigate("/login"); }}>
               <LogOut className="mr-2 h-4 w-4" /> Sign Out
             </Button>
           </CardContent>
@@ -158,7 +158,7 @@ export default function SelectClinic() {
               <Shield className="mr-2 h-4 w-4" /> Admin Panel
             </Button>
           )}
-          <Button variant="ghost" size="sm" onClick={() => { signOut(); navigate("/"); }} className="text-muted-foreground">
+          <Button variant="ghost" size="sm" onClick={() => { signOut(); navigate("/login"); }} className="text-muted-foreground">
             <LogOut className="mr-2 h-4 w-4" /> Sign Out
           </Button>
         </div>
