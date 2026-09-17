@@ -75,7 +75,7 @@ export default function Signup() {
         navigate(`/clinic/${slug}/dashboard`, { replace: true });
       } else {
         toast({ title: "Check your email", description: "Confirm your address to finish setting up your clinic." });
-        navigate("/", { replace: true });
+        navigate("/login", { replace: true });
       }
     } catch (error: any) {
       toast({ title: "Sign up failed", description: error.message, variant: "destructive" });
@@ -164,7 +164,7 @@ export default function Signup() {
             </Button>
             <p className="text-center text-sm text-muted-foreground">
               Already have an account?{" "}
-              <Link to="/" className="font-medium text-primary hover:underline">
+              <Link to="/login" className="font-medium text-primary hover:underline">
                 Sign in
               </Link>
             </p>

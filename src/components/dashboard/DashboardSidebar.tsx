@@ -52,7 +52,7 @@ export function DashboardSidebar() {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/");
+    navigate("/login");
   };
 
   const NavItem = ({ item, fullUrl }: { item: any; fullUrl: string }) => {

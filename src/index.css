@@ -438,3 +438,34 @@
   opacity: 1; backdrop-filter: blur(8px);
   transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
 }
+
+/* ── Public marketing site theme (scoped) ── */
+.site-theme {
+  --background: 0 0% 100%;
+  --foreground: 214 54% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 214 54% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 214 54% 11%;
+  --primary: 184 73% 30%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 184 30% 95%;
+  --secondary-foreground: 184 73% 30%;
+  --muted: 207 20% 95%;
+  --muted-foreground: 207 20% 46%;
+  --accent: 207 47% 21%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 207 20% 88%;
+  --input: 207 20% 88%;
+  --ring: 184 73% 30%;
+  --radius: 0.75rem;
+  --medical-blue: 184 73% 30%;
+  --medical-blue-light: 184 40% 94%;
+  --medical-blue-dark: 214 54% 11%;
+  --medical-navy: 214 54% 11%;
+  --medical-teal: 184 73% 30%;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}

@@ -26,7 +26,7 @@ export function AdminHeader() {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/");
+    navigate("/login");
   };
 
   const segment = location.pathname.replace("/admin", "").replace(/^\//, "");
